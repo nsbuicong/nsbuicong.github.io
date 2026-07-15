@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mang Tiền Về Cho Vợ — Ns Bùi Công</title>
+    <meta name="description" content="Nghe Mang Tiền Về Cho Vợ của Ns Bùi Công trên Spotify, Apple Music, YouTube và nhiều nền tảng khác.">
+    <meta property="og:title" content="Mang Tiền Về Cho Vợ — Ns Bùi Công">
+    <meta property="og:description" content="Nghèo không sợ — vợ khổ mới đau. Nghe ngay!">
+    <meta property="og:image" content="../cover-mang-tien-ve-cho-vo.jpg">
+    <meta property="og:type" content="music.song">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        html{-webkit-font-smoothing:antialiased}
+        body{
+            font-family:'Inter',sans-serif;
+            min-height:100vh;display:flex;align-items:center;justify-content:center;
+            padding:20px;background:#0a0805;overflow-x:hidden;
+        }
+
+        /* NỀN — Tone vàng ấm, cảm xúc */
+        .bg{
+            position:fixed;inset:0;z-index:0;
+            background-image:url('../cover-mang-tien-ve-cho-vo.jpg');
+            background-size:cover;background-position:center top;
+            filter:blur(22px) brightness(0.28) saturate(1.5);
+            transform:scale(1.12);
+            animation:bg-in 1.2s ease forwards;
+        }
+        @keyframes bg-in{from{filter:blur(50px) brightness(0.1);opacity:0}to{filter:blur(22px) brightness(0.28) saturate(1.5);opacity:1}}
+        .bg-overlay{
+            position:fixed;inset:0;z-index:1;
+            background:linear-gradient(160deg,rgba(25,15,5,0.8) 0%,rgba(15,10,3,0.6) 50%,rgba(20,10,5,0.85) 100%);
+        }
+        .orb1{position:fixed;width:320px;height:320px;border-radius:50%;filter:blur(80px);z-index:2;pointer-events:none;background:radial-gradient(circle,rgba(230,150,20,0.2),transparent);top:-80px;left:-60px;animation:drift 11s ease-in-out infinite}
+        .orb2{position:fixed;width:260px;height:260px;border-radius:50%;filter:blur:80px;z-index:2;pointer-events:none;background:radial-gradient(circle,rgba(180,80,20,0.18),transparent);bottom:-50px;right:-50px;animation:drift 14s ease-in-out infinite reverse}
+        @keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(-18px,22px)}}
+
+        /* CARD */
+        .card{
+            position:relative;z-index:10;width:100%;max-width:400px;
+            border-radius:22px;overflow:hidden;
+            box-shadow:0 30px 80px rgba(0,0,0,0.65),0 0 0 1px rgba(255,255,255,0.06) inset;
+            animation:card-in 0.85s cubic-bezier(0.34,1.56,0.64,1) both;
+        }
+        @keyframes card-in{from{opacity:0;transform:translateY(45px) scale(0.94)}to{opacity:1;transform:translateY(0) scale(1)}}
+
+        /* HERO */
+        .hero{
+            padding:32px 28px 50px;text-align:center;
+            background:rgba(20,12,4,0.55);
+            backdrop-filter:blur(20px) saturate(1.8);-webkit-backdrop-filter:blur(20px) saturate(1.8);
+            border-bottom:1px solid rgba(255,255,255,0.06);position:relative;
+        }
+        .back-btn{position:absolute;top:16px;left:16px;display:inline-flex;align-items:center;gap:5px;color:rgba(255,255,255,0.45);font-size:0.75rem;text-decoration:none;transition:color 0.2s}
+        .back-btn:hover{color:rgba(255,255,255,0.9)}
+        .back-btn svg{width:16px;height:16px;fill:currentColor}
+
+        .badge{
+            display:inline-flex;align-items:center;gap:6px;
+            background:linear-gradient(135deg,rgba(220,140,20,0.85),rgba(200,100,15,0.7));
+            color:#fff;font-size:0.6rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+            padding:5px 13px;border-radius:30px;margin-bottom:20px;
+            box-shadow:0 4px 14px rgba(220,140,20,0.35);
+        }
+        .badge-dot{width:5px;height:5px;background:#fff;border-radius:50%;animation:blink 1.6s infinite}
+        @keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+
+        .art-wrap{position:relative;display:inline-block;margin-bottom:22px;animation:art-pop 1s 0.2s cubic-bezier(0.34,1.56,0.64,1) both}
+        @keyframes art-pop{from{opacity:0;transform:scale(0.75) rotate(3deg)}to{opacity:1;transform:scale(1) rotate(0)}}
+        .art-wrap img{
+            width:190px;height:190px;border-radius:14px;object-fit:cover;display:block;
+            box-shadow:0 20px 55px rgba(0,0,0,0.6),0 0 0 2px rgba(255,255,255,0.08);
+            transition:transform 0.45s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.4s;
+        }
+        .art-wrap:hover img{transform:scale(1.05) rotate(1.5deg);box-shadow:0 28px 70px rgba(0,0,0,0.7),0 0 0 2.5px rgba(220,140,20,0.5)}
+        .art-glow{position:absolute;bottom:-18px;left:5%;width:90%;height:30px;background:linear-gradient(to right,rgba(220,140,20,0.5),rgba(200,80,20,0.35),rgba(220,140,20,0.5));filter:blur(14px);border-radius:50%}
+
+        .artist-row{display:flex;align-items:center;justify-content:center;gap:9px;margin-bottom:9px;animation:fade-in 0.8s 0.5s both}
+        @keyframes fade-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+        .artist-ava{width:26px;height:26px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.18)}
+        .artist-name-txt{color:rgba(255,255,255,0.6);font-size:0.82rem;font-weight:500}
+        .song-title{color:#fff;font-size:1.55rem;font-weight:800;line-height:1.2;margin-bottom:5px;text-shadow:0 2px 10px rgba(0,0,0,0.4);animation:fade-in 0.8s 0.6s both}
+        .song-quote{color:rgba(255,220,100,0.75);font-size:0.78rem;font-style:italic;margin-bottom:4px;animation:fade-in 0.8s 0.65s both}
+        .song-meta{color:rgba(255,255,255,0.45);font-size:0.78rem;animation:fade-in 0.8s 0.7s both}
+
+        .wave{display:block;width:100%;margin-bottom:-2px}
+
+        .stores{background:#fafaf8;padding:20px 22px 16px}
+        .stores-lbl{font-size:0.62rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#a0a0b0;margin-bottom:10px;padding-left:4px}
+
+        .store-item{display:flex;align-items:center;justify-content:space-between;padding:9px 10px;border-radius:12px;text-decoration:none;transition:background 0.2s,transform 0.2s;cursor:pointer;animation:item-in 0.5s both}
+        .store-item:nth-child(1){animation-delay:.08s}.store-item:nth-child(2){animation-delay:.13s}
+        .store-item:nth-child(3){animation-delay:.18s}.store-item:nth-child(4){animation-delay:.23s}
+        .store-item:nth-child(5){animation-delay:.28s}.store-item:nth-child(6){animation-delay:.33s}
+        .store-item:nth-child(7){animation-delay:.38s}
+        @keyframes item-in{from{opacity:0;transform:translateX(-10px)}to{opacity:1;transform:translateX(0)}}
+        .store-item:hover{background:linear-gradient(135deg,rgba(220,140,20,0.07),rgba(200,80,20,0.04));transform:translateX(4px)}
+        .logo-box{height:34px;display:flex;align-items:center;flex:1}
+        .logo-box img{height:100%;width:auto;max-width:110px;object-fit:contain;object-position:left center}
+        .play-btn{
+            display:inline-flex;align-items:center;gap:5px;
+            padding:7px 15px;border-radius:30px;
+            border:1.5px solid #e0e0e8;background:#fff;
+            font-family:'Inter',sans-serif;font-size:0.78rem;font-weight:600;
+            color:#4a4a5a;cursor:pointer;transition:all 0.2s;
+            box-shadow:0 1px 4px rgba(0,0,0,0.06);white-space:nowrap;
+        }
+        .play-btn svg{flex-shrink:0;transition:transform 0.2s}
+        .store-item:hover .play-btn{background:linear-gradient(135deg,#dc8c14,#c85014);color:#fff;border-color:transparent;box-shadow:0 5px 14px rgba(220,140,20,0.4)}
+        .store-item:hover .play-btn svg{transform:scale(1.2)}
+        .sep{height:1px;background:linear-gradient(to right,transparent,#ededee,transparent);margin:2px 10px}
+
+        .footer{background:#fafaf8;padding:0 22px 20px;text-align:center}
+        .share-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;width:100%;padding:11px;border-radius:12px;background:linear-gradient(135deg,rgba(220,140,20,0.08),rgba(200,80,20,0.05));border:1px dashed #e8d8b0;color:#c87020;font-size:0.8rem;font-weight:600;cursor:pointer;transition:all 0.2s;margin-bottom:14px;font-family:'Inter',sans-serif}
+        .share-btn:hover{background:linear-gradient(135deg,rgba(220,140,20,0.14),rgba(200,80,20,0.09))}
+        .footer-txt{font-size:0.68rem;color:#c0c0c8;letter-spacing:0.08em;text-transform:uppercase}
+        .footer-txt a{color:#c87020;text-decoration:none;font-weight:600}
+
+        .toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(80px);background:#111;color:#fff;padding:10px 22px;border-radius:30px;font-size:0.82rem;font-weight:500;z-index:999;box-shadow:0 8px 25px rgba(0,0,0,0.4);transition:transform 0.35s cubic-bezier(0.34,1.56,0.64,1),opacity 0.3s;opacity:0;pointer-events:none}
+        .toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+
+        @media(max-width:440px){body{padding:0;align-items:flex-start}.card{border-radius:0;max-width:100%;min-height:100dvh;box-shadow:none}}
+    </style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="bg-overlay"></div>
+<div class="orb1"></div>
+<div class="orb2"></div>
+
+<main class="card">
+    <section class="hero">
+        <a class="back-btn" href="../">
+            <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+            Ns Bùi Công
+        </a>
+
+        <div class="badge"><span class="badge-dot"></span>Single mới nhất</div>
+
+        <div class="art-wrap">
+            <img src="../cover-mang-tien-ve-cho-vo.jpg"
+                 onerror="this.src='https://i.ytimg.com/vi/JZ305wykegw/hqdefault.jpg'"
+                 alt="Mang Tiền Về Cho Vợ">
+            <div class="art-glow"></div>
+        </div>
+
+        <div class="artist-row">
+            <img class="artist-ava" src="../avatar.jpg"
+                 onerror="this.style.background='#c87020'"
+                 alt="Ns Bùi Công">
+            <span class="artist-name-txt">Ns Bùi Công</span>
+        </div>
+        <h1 class="song-title">Mang Tiền Về Cho Vợ</h1>
+        <p class="song-quote">"Nghèo không sợ — vợ khổ mới đau"</p>
+        <p class="song-meta">Single • Sáng tác: Ns Bùi Công</p>
+    </section>
+
+    <svg class="wave" viewBox="0 0 400 32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0,18 C70,32 130,4 200,18 C270,32 330,8 400,18 L400,32 L0,32 Z" fill="#fafaf8"/>
+    </svg>
+
+    <section class="stores">
+        <p class="stores-lbl">🎵 Chọn nền tảng nghe nhạc</p>
+
+        <a class="store-item" href="https://youtu.be/JZ305wykegw" target="_blank" rel="noopener">
+            <div class="logo-box"><img src="https://promotion-assets.prd.marketing.believedigital.com/images/stores/logo-youtube-label.png" alt="YouTube"></div>
+            <button class="play-btn" onclick="return false"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>Watch</button>
+        </a>
+        <div class="sep"></div>
+        <a class="store-item" href="https://open.spotify.com/album/3z8n9Lhm1BXYwTt5vqqgjP" target="_blank" rel="noopener">
+            <div class="logo-box"><img src="https://promotion-assets.prd.marketing.believedigital.com/images/stores/logo-spotify-label.png" alt="Spotify"></div>
+            <button class="play-btn" onclick="return false"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Play</button>
+        </a>
+        <div class="sep"></div>
+        <a class="store-item" href="https://music.youtube.com/watch?v=ne0N7vWwdjc" target="_blank" rel="noopener">
+            <div class="logo-box"><img src="https://promotion-assets.prd.marketing.believedigital.com/images/stores/logo-youtubeMusic-label.png" alt="YouTube Music"></div>
+            <button class="play-btn" onclick="return false"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Play</button>
+        </a>
+        <div class="sep"></div>
+        <a class="store-item" href="https://music.apple.com/album/id/1865853958" target="_blank" rel="noopener">
+            <div class="logo-box"><img src="https://promotion-assets.prd.marketing.believedigital.com/images/stores/logo-appleMusic-label.png" alt="Apple Music"></div>
+            <button class="play-btn" onclick="return false"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Play</button>
+        </a>
+        <div class="sep"></div>
+        <a class="store-item" href="https://music.amazon.com/albums/B0GDQDSY8G" target="_blank" rel="noopener">
+            <div class="logo-box"><img src="https://promotion-assets.prd.marketing.believedigital.com/images/stores/logo-amazonMusic-label.png" alt="Amazon Music"></div>
+            <button class="play-btn" onclick="return false"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Play</button>
+        </a>
+        <div class="sep"></div>
+        <a class="store-item" href="https://link.deezer.com/s/33PLbhUCPC9OMrPpQaKP3" target="_blank" rel="noopener">
+            <div class="logo-box"><img src="https://promotion-assets.prd.marketing.believedigital.com/images/stores/logo-deezer-label.png" alt="Deezer" onerror="this.outerHTML='<span style=\'font-size:14px;font-weight:800;color:#a238ff\'>DEEZER</span>'"></div>
+            <button class="play-btn" onclick="return false"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Play</button>
+        </a>
+        <div class="sep"></div>
+        <a class="store-item" href="https://tidal.com/album/486457817/u" target="_blank" rel="noopener">
+            <div class="logo-box"><img src="https://promotion-assets.prd.marketing.believedigital.com/images/stores/logo-tidal-label.png" alt="Tidal"></div>
+            <button class="play-btn" onclick="return false"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Play</button>
+        </a>
+    </section>
+
+    <footer class="footer">
+        <button class="share-btn" onclick="shareThis()">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            Chia sẻ bài hát này
+        </button>
+        <p class="footer-txt">Powered by <a href="https://nsbuicong.github.io">nsbuicong.github.io</a></p>
+    </footer>
+</main>
+
+<div class="toast" id="toast">✅ Đã copy link!</div>
+<script>
+function shareThis(){
+    const url=window.location.href,title='Mang Tiền Về Cho Vợ — Ns Bùi Công';
+    if(navigator.share)navigator.share({title,url});
+    else navigator.clipboard.writeText(url).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2800)});
+}
+</script>
+</body>
+</html>
