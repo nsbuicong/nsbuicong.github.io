@@ -50,6 +50,11 @@
             display: flex; align-items: center; justify-content: center;
             padding: max(16px, env(safe-area-inset-top)) 16px max(16px, env(safe-area-inset-bottom));
         }
+        /* Mobile: không có margin 2 bên — artwork bám sát màn hình */
+        @media (max-width: 479px) {
+            .page { padding: 0 0 max(24px, env(safe-area-inset-bottom)); align-items: flex-start; }
+            .card { border-radius: 0 0 20px 20px; }
+        }
 
         /* ── CARD ── */
         .card {
@@ -269,14 +274,7 @@
     <section class="stores" aria-label="Chọn nền tảng nghe nhạc">
         <p class="stores-lbl">🎵 Chọn nền tảng nghe nhạc</p>
 
-        <a class="store-item" href="https://youtu.be/DTStrYzTnEI?si=nQSuH_iUMrABVdR-" target="_blank" rel="noopener">
-            <div class="logo-box">
-                <svg class="brand-icon" viewBox="0 0 30 30" fill="none"><rect width="30" height="30" rx="7" fill="#FF0000"/><polygon points="12,9 12,21 22,15" fill="white"/></svg>
-                <span class="brand-name">YouTube</span>
-            </div>
-            <span class="play-lbl"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>Watch</span>
-        </a>
-        <div class="sep"></div>
+
         <a class="store-item" href="https://open.spotify.com/track/2eU9aoFEGxFZVPD4fJxbPz" target="_blank" rel="noopener">
             <div class="logo-box">
                 <svg class="brand-icon" viewBox="0 0 30 30" fill="none"><circle cx="15" cy="15" r="15" fill="#1DB954"/><path d="M8,11.5 Q15,8.5 22,11" stroke="white" stroke-width="2.2" stroke-linecap="round" fill="none"/><path d="M9,16 Q15,13.2 21,15.5" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M10,20.5 Q15,18 20,20" stroke="white" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>
