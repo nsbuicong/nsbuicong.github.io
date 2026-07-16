@@ -65,68 +65,86 @@
 
         /* ── HERO ── */
         .hero {
-            padding: 28px 22px 44px;
             background: rgba(4,12,30,.58);
             backdrop-filter: blur(22px) saturate(1.8);
             -webkit-backdrop-filter: blur(22px) saturate(1.8);
             border-bottom: 1px solid rgba(255,255,255,.07);
-            text-align: center; position: relative;
+        }
+        /* ── HERO TOPBAR ── */
+        .hero-topbar {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 14px 16px 0;
         }
         .back-btn {
-            position: absolute; top: 14px; left: 14px;
             display: inline-flex; align-items: center; gap: 5px;
             min-height: 36px; padding: 0 8px;
-            color: rgba(255,255,255,.45); font-size: .75rem;
+            color: rgba(255,255,255,.5); font-size: .76rem;
             text-decoration: none; border-radius: 8px;
             transition: color .2s; -webkit-tap-highlight-color: transparent;
         }
-        .back-btn:active, .back-btn:hover { color: rgba(255,255,255,.9); }
+        .back-btn:active, .back-btn:hover { color: rgba(255,255,255,.92); }
         .back-btn svg { width: 16px; height: 16px; fill: currentColor; }
 
         .badge {
             display: inline-flex; align-items: center; gap: 6px;
             background: linear-gradient(135deg,rgba(200,30,30,.9),rgba(170,15,15,.75));
-            color: #fff; font-size: .58rem; font-weight: 700;
+            color: #fff; font-size: .56rem; font-weight: 700;
             letter-spacing: .14em; text-transform: uppercase;
-            padding: 5px 13px; border-radius: 30px; margin-bottom: 18px;
+            padding: 5px 12px; border-radius: 30px;
             box-shadow: 0 4px 14px rgba(200,30,30,.35);
         }
         .badge-dot { width: 5px; height: 5px; background: #fff; border-radius: 50%; animation: blink 1.6s infinite; }
         @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:.25;} }
 
-        .art-wrap {
-            position: relative; display: inline-block;
-            margin-bottom: 20px;
-            animation: artPop .9s .15s cubic-bezier(.34,1.45,.64,1) both;
+        /* ── ARTWORK FULL WIDTH ── */
+        .art-full-wrap {
+            position: relative;
+            width: 100%; margin: 16px 0 0;
+            animation: artPop .8s .1s cubic-bezier(.34,1.45,.64,1) both;
         }
-        @keyframes artPop { from{opacity:0;transform:scale(.72) rotate(-2deg);} to{opacity:1;transform:scale(1) rotate(0);} }
-        .art-wrap img {
-            width: min(175px, 44vw); height: min(175px, 44vw);
-            border-radius: 14px; object-fit: cover; display: block;
-            box-shadow: 0 18px 50px rgba(0,0,0,.6), 0 0 0 2px rgba(255,255,255,.1);
+        @keyframes artPop { from{opacity:0;transform:scale(.88);} to{opacity:1;transform:scale(1);} }
+        .art-full {
+            width: 100%; aspect-ratio: 1/1;
+            object-fit: cover; display: block;
         }
+        .art-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to bottom, transparent 45%, rgba(4,12,30,.92) 100%);
+        }
+        .art-info {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            padding: 16px 20px 20px; text-align: left;
+        }
+
+        /* Desktop: artwork centered square */
+        @media (min-width: 480px) {
+            .art-full-wrap { padding: 20px 24px 0; margin: 0; }
+            .art-full { border-radius: 16px; max-width: 100%;
+                box-shadow: 0 20px 60px rgba(0,0,0,.65); }
+            .art-info { padding: 14px 24px 24px; }
+        }
+
         .art-glow {
-            position: absolute; bottom: -16px; left: 5%; width: 90%; height: 28px;
-            background: linear-gradient(to right, rgba(200,30,30,.45),rgba(255,180,0,.25),rgba(200,30,30,.45));
-            filter: blur(12px); border-radius: 50%;
+            position: absolute; bottom: -1px; left: 0; right: 0; height: 40px;
+            background: linear-gradient(to bottom, transparent, rgba(4,12,30,.95));
         }
 
         .artist-row {
-            display: flex; align-items: center; justify-content: center; gap: 8px;
-            margin-bottom: 8px; animation: fadeIn .7s .4s both;
+            display:flex;align-items:center;gap:8px;
+            margin-bottom:6px;animation:fadeIn .7s .4s both;
         }
-        @keyframes fadeIn { from{opacity:0;transform:translateY(8px);} to{opacity:1;transform:translateY(0);} }
+        @keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
         .artist-ava {
-            width: 24px; height: 24px; border-radius: 50%; object-fit: cover;
-            border: 1.5px solid rgba(255,255,255,.2);
+            width:22px;height:22px;border-radius:50%;object-fit:cover;
+            border:1.5px solid rgba(255,255,255,.25);
         }
-        .artist-name-txt { color: rgba(255,255,255,.6); font-size: .8rem; font-weight: 500; }
+        .artist-name-txt{color:rgba(255,255,255,.7);font-size:.78rem;font-weight:500}
         .song-title {
-            color: #fff; font-size: clamp(1.35rem, 5vw, 1.6rem);
-            font-weight: 800; line-height: 1.2; margin-bottom: 4px;
-            animation: fadeIn .7s .5s both;
+            color:#fff;font-size:clamp(1.3rem,6vw,1.6rem);
+            font-weight:800;line-height:1.15;margin-bottom:3px;
+            animation:fadeIn .7s .5s both;
         }
-        .song-meta { color: rgba(255,255,255,.42); font-size: .78rem; animation: fadeIn .7s .6s both; }
+        .song-meta{color:rgba(255,255,255,.45);font-size:.75rem;animation:fadeIn .7s .6s both;}
 
         /* ── WAVE ── */
         .wave { display: block; width: 100%; margin-bottom: -1px; }
@@ -214,27 +232,34 @@
 <div class="page">
 <main class="card">
     <section class="hero">
-        <a class="back-btn" href="../" aria-label="Về trang Bùi Công">
-            <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
-            Bùi Công
-        </a>
+        <!-- Topbar: back + badge -->
+        <div class="hero-topbar">
+            <a class="back-btn" href="../" aria-label="Về trang Bùi Công">
+                <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                Bùi Công
+            </a>
+            <div class="badge"><span class="badge-dot"></span>Single mới nhất</div>
+        </div>
 
-        <div class="badge"><span class="badge-dot"></span>Single mới nhất</div>
-
-        <div class="art-wrap">
-            <img src="../cover-doc-dai-dat-viet.jpg"
+        <!-- Artwork full-width -->
+        <div class="art-full-wrap">
+            <img class="art-full"
+                 src="../cover-doc-dai-dat-viet.jpg"
                  onerror="this.src='https://i.ytimg.com/vi/DTStrYzTnEI/hqdefault.jpg'"
-                 alt="Dọc Dải Đất Việt" width="175" height="175">
+                 alt="Dọc Dải Đất Việt">
+            <div class="art-overlay"></div>
             <div class="art-glow"></div>
+            <!-- Info overlaid on artwork -->
+            <div class="art-info">
+                <div class="artist-row">
+                    <img class="artist-ava" src="../avatar.jpg" alt="Bùi Công"
+                         onerror="this.style.background='#c81e1e'">
+                    <span class="artist-name-txt">Bùi Công</span>
+                </div>
+                <h1 class="song-title">Dọc Dải Đất Việt</h1>
+                <p class="song-meta">Single · Sáng tác: Bùi Công</p>
+            </div>
         </div>
-
-        <div class="artist-row">
-            <img class="artist-ava" src="../avatar.jpg" alt="Bùi Công"
-                 onerror="this.style.background='#c81e1e'">
-            <span class="artist-name-txt">Bùi Công</span>
-        </div>
-        <h1 class="song-title">Dọc Dải Đất Việt</h1>
-        <p class="song-meta">Single · Sáng tác: Bùi Công</p>
     </section>
 
     <svg class="wave" viewBox="0 0 420 28" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true">
