@@ -742,62 +742,76 @@
 <footer>© 2026 Bùi Công — <a href="https://nsbuicong.github.io">nsbuicong.github.io</a></footer>
 
 <!-- ═ Nút Đăng ký kênh Nổi ═ -->
-<a class="float-sub" href="https://www.youtube.com/@nsbuicong?sub_confirmation=1" target="_blank" rel="noopener" id="floatSub" aria-label="Đăng ký kênh YouTube">
-    <div class="float-sub-inner">
-        <svg class="float-yt-icon" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 00.5 6.19C0 8.04 0 12 0 12s0 3.96.5 5.81a3.02 3.02 0 002.12 2.14C4.46 20.5 12 20.5 12 20.5s7.54 0 9.38-.55a3.02 3.02 0 002.12-2.14C24 15.96 24 12 24 12s0-3.96-.5-5.81zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/></svg>
+<div class="float-sub" id="floatSub">
+    <a class="float-sub-link" href="https://www.youtube.com/@nsbuicong?sub_confirmation=1" target="_blank" rel="noopener" aria-label="Đăng ký kênh YouTube Ns Bùi Công">
+        <span class="float-yt-badge">
+            <svg viewBox="0 0 24 24"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 00.5 6.19C0 8.04 0 12 0 12s0 3.96.5 5.81a3.02 3.02 0 002.12 2.14C4.46 20.5 12 20.5 12 20.5s7.54 0 9.38-.55a3.02 3.02 0 002.12-2.14C24 15.96 24 12 24 12s0-3.96-.5-5.81zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/></svg>
+        </span>
         <span class="float-text">Đăng ký kênh</span>
-    </div>
-    <button class="float-close-btn" onclick="event.preventDefault();event.stopPropagation();document.getElementById('floatSub').style.display='none'" aria-label="Đóng">×</button>
-</a>
+    </a>
+    <button class="float-close-btn" onclick="document.getElementById('floatSub').style.display='none'" aria-label="Đóng thông báo">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+</div>
 
 <style>
 .float-sub {
-    position: fixed; bottom: 24px; right: 16px; z-index: 9999;
-    display: flex; align-items: center; gap: 0;
-    background: #FF0000;
-    color: #fff; text-decoration: none;
-    border-radius: 30px;
-    box-shadow: 0 6px 28px rgba(255,0,0,.5), 0 2px 8px rgba(0,0,0,.3);
-    animation: floatBounceIn .7s .8s cubic-bezier(.34,1.45,.64,1) both;
-    overflow: hidden;
+    position: fixed; bottom: 22px; right: 18px; z-index: 9999;
+    display: inline-flex; align-items: center;
+    background: linear-gradient(135deg, #FF1A1A 0%, #D90000 100%);
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.22) inset;
+    animation: floatBounceIn .7s .8s cubic-bezier(.34,1.45,.64,1) both, floatPulse 3s 2s ease-in-out infinite;
     -webkit-tap-highlight-color: transparent;
-    transition: transform .2s, box-shadow .2s;
+    transition: transform .25s cubic-bezier(.34,1.45,.64,1), box-shadow .25s ease;
+    padding: 4px;
 }
-.float-sub-inner {
-    display: flex; align-items: center; gap: 8px;
-    padding: 11px 14px 11px 12px;
+.float-sub-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    text-decoration: none; color: #fff;
+    padding: 6px 6px 6px 12px;
 }
-.float-yt-icon { width: 20px; height: 20px; flex-shrink: 0; }
+.float-yt-badge {
+    width: 24px; height: 24px; border-radius: 50%;
+    background: rgba(255,255,255,0.22);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+}
+.float-yt-badge svg { width: 14px; height: 14px; fill: #fff; }
 .float-text {
-    font-size: .78rem; font-weight: 700;
+    font-size: .82rem; font-weight: 700;
     white-space: nowrap; letter-spacing: .01em;
 }
 .float-close-btn {
-    background: rgba(0,0,0,.22); border: none;
-    color: rgba(255,255,255,.85); font-size: .85rem; line-height: 1;
-    width: 32px; height: 100%;
-    cursor: pointer; padding: 0;
-    transition: background .15s;
+    width: 22px; height: 22px; margin-right: 4px; margin-left: 2px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.18);
     display: flex; align-items: center; justify-content: center;
-    border-left: 1px solid rgba(255,255,255,.15);
+    cursor: pointer; padding: 0;
+    color: rgba(255, 255, 255, 0.85);
+    transition: all .2s ease;
     flex-shrink: 0;
 }
-.float-close-btn:hover { background: rgba(0,0,0,.35); }
+.float-close-btn:hover {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    transform: scale(1.12);
+}
 @keyframes floatBounceIn {
     from { opacity:0; transform:translateY(30px) scale(.85); }
     to   { opacity:1; transform:translateY(0) scale(1); }
 }
 @keyframes floatPulse {
-    0%,100% { box-shadow: 0 6px 28px rgba(255,0,0,.5); }
-    50%      { box-shadow: 0 6px 36px rgba(255,0,0,.75), 0 0 0 8px rgba(255,0,0,.1); }
+    0%,100% { box-shadow: 0 10px 30px rgba(255,0,0,.45), 0 0 0 1px rgba(255,255,255,0.22) inset; }
+    50%      { box-shadow: 0 14px 40px rgba(255,0,0,.7), 0 0 0 6px rgba(255,0,0,.15), 0 0 0 1px rgba(255,255,255,0.3) inset; }
 }
-.float-sub { animation: floatBounceIn .7s .8s cubic-bezier(.34,1.45,.64,1) both, floatPulse 3s 2s ease-in-out infinite; }
 @media (hover: hover) {
-    .float-sub:hover { transform: translateY(-3px); box-shadow: 0 10px 36px rgba(255,0,0,.65); }
+    .float-sub:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 14px 38px rgba(255,0,0,.65); }
 }
 @media (max-width: 360px) {
     .float-text { display: none; }
-    .float-sub-inner { padding: 11px 12px; }
+    .float-sub-link { padding: 6px 4px 6px 8px; }
 }
 </style>
 
